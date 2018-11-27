@@ -25,12 +25,12 @@ def findpivot(A,n):
 
     while(low < high):
         if A[low] < A[high]:
-            return low
+            return low, A[low]
         mid = (low + high) //2
         afterpivot = (mid + 1) % n
         beforepivot = (mid + n-1) % n
         if A[mid] < A[afterpivot] and A[mid] < A[beforepivot]:
-            return mid
+            return mid, A[mid]
         elif A[mid] > A[high]:
             low = mid + 1
         else:
@@ -40,7 +40,7 @@ def findpivot(A,n):
 
 if __name__ == "__main__":
     arr = [15,22,23,28,31,38,5,6,8,10,12]
-    print("The array is rotated {} times".format(findpivot(arr,11)))
+    print("The number of times rotated and the value: {} respectively".format(findpivot(arr,11)))
 
 
 
